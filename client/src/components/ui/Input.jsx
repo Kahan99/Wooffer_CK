@@ -7,7 +7,11 @@ export const Input = React.forwardRef(
       <div className="relative w-full group">
         {Icon && (
           <div className="absolute left-5 top-1/2 -translate-y-1/2 text-text-muted/50 pointer-events-none group-focus-within:text-primary transition-colors">
-            <Icon className="w-5 h-5" />
+            {typeof Icon === "function" ? (
+              <Icon className="w-5 h-5" />
+            ) : (
+              Icon
+            )}
           </div>
         )}
         <input

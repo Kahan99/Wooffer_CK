@@ -6,6 +6,11 @@ const serviceSchema = new mongoose.Schema({
     ref: 'Project',
     required: true
   },
+  created_by: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    default: null,
+  },
   service_name: {
     type: String,
     required: true,
@@ -29,6 +34,20 @@ const serviceSchema = new mongoose.Schema({
     type: String,
     enum: ['development', 'staging', 'production'],
     default: 'development'
+  },
+  settings: {
+    email_notifications: { type: Boolean, default: true },
+    weekly_report: { type: Boolean, default: false },
+    api_logs: { type: Boolean, default: true },
+    critical_logs: { type: Boolean, default: true },
+    server_activity_log: { type: Boolean, default: true },
+    process_usage: { type: Boolean, default: true },
+    cpu_usage: { type: Boolean, default: true },
+    cpu_interval_sec: {
+      type: Number,
+      enum: [5, 10, 15, 30, 60],
+      default: 10,
+    },
   }
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 

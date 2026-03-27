@@ -28,6 +28,42 @@ const monitoringMetricSchema = new mongoose.Schema({
     type: Object, // Can be complex object or just a number? User req: "Process usage".
     // Might be process specific metrics. Let's store as Object for flexibility.
   },
+  api_calls: {
+    type: [
+      {
+        source: {
+          type: String,
+          enum: ['internal', 'third_party'],
+          default: 'internal'
+        },
+        method: {
+          type: String,
+          default: 'GET'
+        },
+        endpoint: {
+          type: String,
+          required: true
+        },
+        statusCode: {
+          type: Number,
+          default: 0
+        },
+        success: {
+          type: Boolean,
+          default: false
+        },
+        responseTimeMs: {
+          type: Number,
+          default: 0
+        },
+        timestamp: {
+          type: Date,
+          default: Date.now
+        }
+      }
+    ],
+    default: []
+  },
   uptime: {
     type: Number, // Seconds
     required: true

@@ -2,6 +2,8 @@ const Project = require('../models/Project');
 const User = require('../models/user.model');
 const asyncHandler = require('../utilities/asyncHandler.utility');
 const ErrorHandler = require('../utilities/errorHandler.utility');
+const sendEmail = require('../utilities/sendEmail.utility');
+const { createNotification, createNotificationsForUsers } = require('../utilities/notification.utility');
 
 // ─── helpers ───────────────────────────────────────────────────────────────
 
@@ -36,6 +38,14 @@ const requireOwner = (project, userId, next) => {
   return false;
 };
 
+/** Collect owner + contributor user ids as strings (supports populated and raw refs) */
+const getProjectMemberIds = (project) => {
+  if (!project) return [];
+  const ownerId = project.user_id?._id ?? project.user_id;
+  const contributorIds = (project.contributors || []).map((c) => c.user?._id ?? c.user);
+  return [...new Set([ownerId, ...contributorIds].filter(Boolean).map((id) => String(id)))];
+};
+
 // ─── controllers ───────────────────────────────────────────────────────────
 
 // @desc    Create a new project
@@ -44,6 +54,14 @@ const createProject = asyncHandler(async (req, res, next) => {
   const { project_name, description } = req.body;
   if (!project_name) return next(new ErrorHandler('Project name is required', 400));
   const project = await Project.create({ user_id: req.user.id, project_name, description });
+
+  await createNotification({
+    userId: req.user.id,
+    type: 'project',
+    message: `${project.project_name} has been created.`,
+    metadata: { projectId: project._id },
+  });
+
   res.status(201).json({ success: true, data: project });
 });
 
@@ -80,10 +98,31 @@ const updateProject = asyncHandler(async (req, res, next) => {
   const project = await Project.findById(req.params.id);
   if (!requireWrite(project, req.user.id, next)) return;
 
+  const previousName = project.project_name;
   const { project_name, description } = req.body;
   if (project_name) project.project_name = project_name;
   if (description !== undefined) project.description = description;
   await project.save();
+
+  const actor = await User.findById(req.user.id).select('name').lean();
+  const actorName = actor?.name || 'A collaborator';
+
+  const recipientIds = getProjectMemberIds(project)
+    .filter((id) => id && id !== String(req.user.id));
+
+  if (recipientIds.length > 0) {
+    await createNotificationsForUsers(recipientIds, {
+      type: 'project',
+      message: `${actorName} updated settings in project ${project.project_name}.`,
+      metadata: {
+        projectId: project._id,
+        updatedBy: req.user.id,
+        previousProjectName: previousName,
+        currentProjectName: project.project_name,
+      },
+    });
+  }
+
   res.status(200).json({ success: true, data: project });
 });
 
@@ -92,6 +131,23 @@ const updateProject = asyncHandler(async (req, res, next) => {
 const deleteProject = asyncHandler(async (req, res, next) => {
   const project = await Project.findById(req.params.id);
   if (!requireOwner(project, req.user.id, next)) return;
+
+  const actor = await User.findById(req.user.id).select('name').lean();
+  const actorName = actor?.name || 'Project owner';
+  const recipientIds = getProjectMemberIds(project).filter((id) => id !== String(req.user.id));
+
+  if (recipientIds.length > 0) {
+    await createNotificationsForUsers(recipientIds, {
+      type: 'project',
+      message: `${actorName} deleted project ${project.project_name}.`,
+      metadata: {
+        projectId: project._id,
+        updatedBy: req.user.id,
+        action: 'deleted',
+      },
+    });
+  }
+
   await project.deleteOne();
   res.status(200).json({ success: true, message: 'Project deleted successfully' });
 });
@@ -118,6 +174,48 @@ const addContributor = asyncHandler(async (req, res, next) => {
   project.contributors.push({ user: userToAdd._id, role });
   await project.save();
 
+  const accessLabel = role === 'full' ? 'Full access' : 'Limited access';
+
+  await createNotification({
+    userId: req.user.id,
+    type: 'contributor',
+    message: `${userToAdd.name} added as a contributor in ${project.project_name}.`,
+    metadata: {
+      projectId: project._id,
+      contributorId: userToAdd._id,
+      role,
+    },
+  });
+
+  await createNotification({
+    userId: userToAdd._id,
+    type: 'contributor',
+    message: `You have been added as a contributor in ${project.project_name} with ${accessLabel}.`,
+    metadata: {
+      projectId: project._id,
+      role,
+      access: accessLabel,
+      addedBy: req.user.id,
+    },
+  });
+
+  try {
+    await sendEmail({
+      email: userToAdd.email,
+      subject: `Added as contributor in ${project.project_name}`,
+      message: [
+        `Hi ${userToAdd.name},`,
+        '',
+        `You have been added as a contributor in ${project.project_name}.`,
+        `Access: ${accessLabel}`,
+        '',
+        'Please sign in to Wooffer to view the project.',
+      ].join('\n'),
+    });
+  } catch (err) {
+    console.warn(`⚠️ Contributor invite email failed for ${userToAdd.email}: ${err.message}`);
+  }
+
   res.status(200).json({
     success: true,
     message: `${userToAdd.name} added as contributor`,
@@ -140,6 +238,27 @@ const updateContributorRole = asyncHandler(async (req, res, next) => {
 
   contrib.role = role;
   await project.save();
+
+  const actor = await User.findById(req.user.id).select('name').lean();
+  const targetUser = await User.findById(req.params.userId).select('name').lean();
+  const actorName = actor?.name || 'Project owner';
+  const targetName = targetUser?.name || 'A contributor';
+
+  const recipientIds = getProjectMemberIds(project).filter((id) => id !== String(req.user.id));
+  if (recipientIds.length > 0) {
+    await createNotificationsForUsers(recipientIds, {
+      type: 'contributor',
+      message: `${actorName} changed ${targetName}'s access to ${role} in ${project.project_name}.`,
+      metadata: {
+        projectId: project._id,
+        contributorId: req.params.userId,
+        role,
+        updatedBy: req.user.id,
+        action: 'role-changed',
+      },
+    });
+  }
+
   res.status(200).json({ success: true, message: `Role updated to ${role}` });
 });
 
@@ -148,6 +267,25 @@ const updateContributorRole = asyncHandler(async (req, res, next) => {
 const removeContributor = asyncHandler(async (req, res, next) => {
   const project = await Project.findById(req.params.id);
   if (!requireOwner(project, req.user.id, next)) return;
+
+  const actor = await User.findById(req.user.id).select('name').lean();
+  const removedUser = await User.findById(req.params.userId).select('name').lean();
+  const actorName = actor?.name || 'Project owner';
+  const removedName = removedUser?.name || 'A contributor';
+
+  const recipientIds = getProjectMemberIds(project).filter((id) => id !== String(req.user.id));
+  if (recipientIds.length > 0) {
+    await createNotificationsForUsers(recipientIds, {
+      type: 'contributor',
+      message: `${actorName} removed ${removedName} from ${project.project_name}.`,
+      metadata: {
+        projectId: project._id,
+        contributorId: req.params.userId,
+        updatedBy: req.user.id,
+        action: 'removed',
+      },
+    });
+  }
 
   project.contributors = project.contributors.filter(
     c => c.user.toString() !== req.params.userId

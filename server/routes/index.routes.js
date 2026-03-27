@@ -5,6 +5,7 @@ const userRoutes = require('./user.routes.js');
 const projectRoutes = require('./project.routes.js');
 const serviceRoutes = require('./service.routes.js');
 const monitoringRoutes = require('./monitoring.routes.js');
+const notificationRoutes = require('./notification.routes.js');
 const { getHealthStatus } = require('../controllers/health.controller.js');
 
 router.get('/health', getHealthStatus);
@@ -12,6 +13,7 @@ router.use('/users', userRoutes);
 router.use('/projects', projectRoutes);
 router.use('/services', serviceRoutes);
 router.use('/monitoring', monitoringRoutes);
+router.use('/notifications', notificationRoutes);
 
 module.exports = router;
 
