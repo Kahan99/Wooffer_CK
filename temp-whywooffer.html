@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why Wooffer | Sentinel Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#c3c0ff",
+              "outline": "#918fa1",
+              "surface-container-lowest": "#060e20",
+              "on-primary": "#1d00a5",
+              "primary-fixed": "#e2dfff",
+              "on-tertiary": "#003824",
+              "secondary-container": "#3a4a5f",
+              "surface-container": "#171f33",
+              "surface": "#0b1326",
+              "primary-fixed-dim": "#c3c0ff",
+              "tertiary-fixed": "#6ffbbe",
+              "on-surface-variant": "#c7c4d8",
+              "on-primary-container": "#dad7ff",
+              "background": "#0b1326",
+              "on-error-container": "#ffdad6",
+              "tertiary": "#4edea3",
+              "on-error": "#690005",
+              "secondary-fixed-dim": "#b7c8e1",
+              "secondary-fixed": "#d3e4fe",
+              "inverse-on-surface": "#283044",
+              "inverse-primary": "#4d44e3",
+              "primary": "#c3c0ff",
+              "secondary": "#b7c8e1",
+              "tertiary-fixed-dim": "#4edea3",
+              "on-tertiary-fixed-variant": "#005236",
+              "inverse-surface": "#dae2fd",
+              "error-container": "#93000a",
+              "surface-bright": "#31394d",
+              "on-secondary-fixed-variant": "#38485d",
+              "error": "#ffb4ab",
+              "on-secondary-fixed": "#0b1c30",
+              "on-primary-fixed": "#0f0069",
+              "on-secondary-container": "#a9bad3",
+              "surface-variant": "#2d3449",
+              "outline-variant": "#464555",
+              "on-secondary": "#213145",
+              "on-primary-fixed-variant": "#3323cc",
+              "surface-container-low": "#131b2e",
+              "on-tertiary-fixed": "#002113",
+              "on-background": "#dae2fd",
+              "primary-container": "#4f46e5",
+              "on-surface": "#dae2fd",
+              "surface-dim": "#0b1326",
+              "tertiary-container": "#006e4b",
+              "surface-container-high": "#222a3d",
+              "surface-container-highest": "#2d3449",
+              "on-tertiary-container": "#67f4b7"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            boxShadow: {
+              'ambient': '0 24px 64px rgba(6, 14, 32, 0.4)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dot-grid {
+            background-image: radial-gradient(circle, #464555 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl shadow-ambient">
+<div class="flex items-center justify-between px-6 py-3 max-w-[1440px] mx-auto w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-slate-900 dark:text-slate-50">Wooffer</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Dashboard</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Usage</a>
+<a class="font-['Plus_Jakarta_Sans'] font-semibold tracking-tight text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-2">
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-[#2d3449] rounded-md transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<button class="p-2 hover:bg-slate-100/50 dark:hover:bg-[#2d3449] rounded-md transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</div>
+<button class="hidden md:block px-4 py-2 font-['Plus_Jakarta_Sans'] text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-indigo-400 transition-colors">Log in</button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-5 py-2 rounded-lg font-['Plus_Jakarta_Sans'] text-sm font-bold shadow-lg hover:shadow-indigo-500/20 active:scale-95 transition-all">Start for Free</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero: Problem vs Solution -->
+<section class="max-w-7xl mx-auto px-6 py-20">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="font-label text-primary font-medium tracking-widest text-xs uppercase mb-4 block">The Sentinel Philosophy</span>
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter mb-6 leading-[1.1]">
+                        Architecture for <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">Diagnostic Clarity.</span>
+</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-xl">
+                        Existing observability tools prioritize storage over understanding. Wooffer is built as a living archive, turning chaotic trace data into actionable structural insight.
+                    </p>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container-low border-l-4 border-error-container">
+<span class="material-symbols-outlined text-error mt-1">warning</span>
+<div>
+<h4 class="font-headline font-bold text-sm text-on-surface mb-1">The Problem</h4>
+<p class="text-sm text-on-surface-variant">High-cardinality data causes billing spikes and alert fatigue in legacy systems.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container border-l-4 border-tertiary-container">
+<span class="material-symbols-outlined text-tertiary mt-1">check_circle</span>
+<div>
+<h4 class="font-headline font-bold text-sm text-on-surface mb-1">The Wooffer Solution</h4>
+<p class="text-sm text-on-surface-variant">Adaptive indexing and tonal layering focus your eye on the outliers that matter.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+<div class="relative bg-surface-container-high aspect-square rounded-2xl overflow-hidden shadow-ambient dot-grid border border-outline-variant/10">
+<div class="absolute inset-0 flex items-center justify-center p-8">
+<div class="w-full space-y-4">
+<div class="h-2 w-1/3 bg-primary/20 rounded-full"></div>
+<div class="grid grid-cols-4 gap-4">
+<div class="h-32 bg-surface-container-highest rounded-lg flex flex-col justify-end p-3 gap-2">
+<div class="h-1/2 w-full bg-primary-container rounded-sm"></div>
+</div>
+<div class="h-32 bg-surface-container-highest rounded-lg flex flex-col justify-end p-3 gap-2">
+<div class="h-4/5 w-full bg-primary rounded-sm"></div>
+</div>
+<div class="h-32 bg-surface-container-highest rounded-lg flex flex-col justify-end p-3 gap-2">
+<div class="h-1/3 w-full bg-primary-container rounded-sm"></div>
+</div>
+<div class="h-32 bg-surface-container-highest rounded-lg flex flex-col justify-end p-3 gap-2">
+<div class="h-2/3 w-full bg-primary rounded-sm"></div>
+</div>
+</div>
+<div class="h-40 bg-surface-container-highest rounded-lg border border-outline-variant/20 p-4 space-y-2">
+<div class="flex justify-between">
+<div class="h-2 w-1/4 bg-on-surface-variant/20 rounded"></div>
+<div class="h-2 w-12 bg-tertiary/20 rounded"></div>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/10"></div>
+<div class="h-2 w-full bg-on-surface-variant/10 rounded"></div>
+<div class="h-2 w-5/6 bg-on-surface-variant/10 rounded"></div>
+<div class="h-2 w-4/6 bg-on-surface-variant/10 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparison Table -->
+<section class="max-w-7xl mx-auto px-6 py-20">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-4">Precision over Volume</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">See how Wooffer stacks up against the industry incumbents when it comes to technical depth and developer experience.</p>
+</div>
+<div class="overflow-x-auto rounded-2xl bg-surface-container-low p-1 border border-outline-variant/10 shadow-ambient">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50">
+<th class="p-6 font-headline font-bold text-lg border-b border-outline-variant/10">Feature</th>
+<th class="p-6 font-headline font-extrabold text-lg text-primary border-b border-outline-variant/10">Wooffer</th>
+<th class="p-6 font-headline font-bold text-lg text-on-surface/50 border-b border-outline-variant/10">Datadog</th>
+<th class="p-6 font-headline font-bold text-lg text-on-surface/50 border-b border-outline-variant/10">Sentry</th>
+</tr>
+</thead>
+<tbody class="font-body text-sm">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-6 border-b border-outline-variant/5 text-on-surface font-medium">Tonal Depth UI</td>
+<td class="p-6 border-b border-outline-variant/5 text-tertiary"><span class="material-symbols-outlined align-middle">check_circle</span></td>
+<td class="p-6 border-b border-outline-variant/5 text-error/40"><span class="material-symbols-outlined align-middle">close</span></td>
+<td class="p-6 border-b border-outline-variant/5 text-error/40"><span class="material-symbols-outlined align-middle">close</span></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-6 border-b border-outline-variant/5 text-on-surface font-medium">Predictive Cost Caps</td>
+<td class="p-6 border-b border-outline-variant/5 text-tertiary"><span class="material-symbols-outlined align-middle">check_circle</span></td>
+<td class="p-6 border-b border-outline-variant/5 text-tertiary"><span class="material-symbols-outlined align-middle">check_circle</span></td>
+<td class="p-6 border-b border-outline-variant/5 text-error/40"><span class="material-symbols-outlined align-middle">close</span></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-6 border-b border-outline-variant/5 text-on-surface font-medium">Native Fira Code Support</td>
+<td class="p-6 border-b border-outline-variant/5 text-tertiary"><span class="material-symbols-outlined align-middle">check_circle</span></td>
+<td class="p-6 border-b border-outline-variant/5 text-error/40"><span class="material-symbols-outlined align-middle">close</span></td>
+<td class="p-6 border-b border-outline-variant/5 text-error/40"><span class="material-symbols-outlined align-middle">close</span></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-6 border-b border-outline-variant/5 text-on-surface font-medium">Adaptive Data Indexing</td>
+<td class="p-6 border-b border-outline-variant/5 text-tertiary"><span class="material-symbols-outlined align-middle">check_circle</span></td>
+<td class="p-6 border-b border-outline-variant/5 text-on-surface/30">Partial</td>
+<td class="p-6 border-b border-outline-variant/5 text-tertiary"><span class="material-symbols-outlined align-middle">check_circle</span></td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-6 text-on-surface font-medium">Sentinel Architecture</td>
+<td class="p-6 text-tertiary"><span class="material-symbols-outlined align-middle">check_circle</span></td>
+<td class="p-6 text-error/40"><span class="material-symbols-outlined align-middle">close</span></td>
+<td class="p-6 text-error/40"><span class="material-symbols-outlined align-middle">close</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="max-w-7xl mx-auto px-6 py-20">
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">format_quote</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Felix" class="w-12 h-12 rounded-full bg-surface-bright" data-alt="Avatar of a male developer with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaHE6o6RF4h7O1eHCn6ywBrDfQSxPFoZ0VE26sNrY98cK_LXw5VEA8AULB8r0GI97sd0wJG1UCfSXv0MdRa59PhuiECaaLKHm4RA4Yhx11FmhXxL7r8IZh2mJnVV0Hy95PpqKBgi_mY0lbl0Efe1rpyqAmtqXy0_HTzCTyZ-MlBfVYXW1CpDDDv4e8WKqphdCgOWx17tO12OKIl37SomBFXaAYDVZlfOUO1BVNQhrbSxwtE8lzGoeecL1XtcBeapySg6cu4SmjO2w"/>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Felix Vance</h4>
+<p class="text-xs text-primary font-label">Principal Engineer, Linear</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"Wooffer has completely changed how we handle post-mortems. The tonal layering UI makes spikes in latency immediately obvious without digging through logs."</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">format_quote</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Sarah" class="w-12 h-12 rounded-full bg-surface-bright" data-alt="Avatar of a female CTO with a professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUq52R22A7H3ij4wZVHueZRYYav3MHh7z8q8iCvcIXoaRIQ4wldTdYGbX2FUxkpBDgYiroV2QghkHsXHH8q1Y1hHOjgNrhzy9_Cn7FoZTVIHVPaVnIUbWaK9VVvOyBHK3T9pD-rYRB0vup9zk69zxb8YAb0H3xWAHXsOcfS0Fym6qJghFBBUuq_qKkwCV9Fo4KCuG8RxbUWh5mfXp8HPklIfTqsdChBCCDLSynBflN20BooeOSBkr54YAQIPrZyzuR-aZVocfHJzQ"/>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Sarah Chen</h4>
+<p class="text-xs text-primary font-label">CTO, Vercel</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"Finally, a monitoring tool that respects the developer's focus. No cluttered dashboards—just the data we need, styled with absolute precision."</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container p-8 rounded-2xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">format_quote</span>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Marcus" class="w-12 h-12 rounded-full bg-surface-bright" data-alt="Avatar of a male software architect" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJGrUySTxVeY23xwr7MSiocZCQ6aAer2m6zhRaObaouIiEhlHCt2pRJTcpqFLNo74Hm4OVU2cpr3-X9V0OrfM1c7Lo8Fz2YsJhJ6BGR_wAsrEKxWKmVRhvpj-LcTeAA2vdSnW6X6Ad5mk601Ht05onCK55IuqcezJQX7u9dbRIygCFSZvRTdLbSm5__89wG6MxqhZJiZocOh77uSHvfq39oWWekou5cYVsVwiLErOzb4MUMcRDzcUWeTzGjlcMhGDHbGJph6_mlKM"/>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Marcus Thorne</h4>
+<p class="text-xs text-primary font-label">DevOps Lead, Stripe</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">"The cost-capping alone saved us thousands. But the real value is in the 'Sentinel Archive' approach to data storage. It's a game changer."</p>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="max-w-5xl mx-auto px-6 py-24 text-center">
+<div class="relative bg-gradient-to-br from-surface-container to-surface-container-low p-12 md:p-20 rounded-3xl border border-outline-variant/10 overflow-hidden">
+<div class="absolute inset-0 dot-grid opacity-10"></div>
+<div class="relative z-10">
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Ready to scale with confidence?</h2>
+<p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">Join 1,200+ engineering teams using Wooffer to secure their system's future.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-lg font-headline font-bold shadow-lg active:scale-95 transition-all">
+                            Get Started for Free
+                        </button>
+<button class="bg-surface-container-highest/50 text-on-surface px-8 py-4 rounded-lg font-headline font-bold hover:bg-surface-container-highest transition-all border border-outline-variant/20 active:scale-95">
+                            Schedule a Demo
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0b1326] border-t border-slate-800/50">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<span class="text-lg font-bold text-slate-50 block mb-6">Wooffer</span>
+<p class="text-slate-400 font-['Plus_Jakarta_Sans'] text-sm leading-relaxed max-w-xs">
+                    Engineering the next generation of developer-focused observability.
+                </p>
+</div>
+<div>
+<h5 class="text-slate-50 font-bold mb-6 text-sm">Product</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Features</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Pricing</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Demo</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Docs</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-slate-50 font-bold mb-6 text-sm">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">About</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Careers</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Blog</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-slate-50 font-bold mb-6 text-sm">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Privacy</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors text-sm hover:translate-x-1 inline-block transition-transform duration-200" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-8 border-t border-slate-800/30 flex justify-between items-center">
+<span class="text-slate-500 font-['Plus_Jakarta_Sans'] text-sm">© 2026 Wooffer Inc.</span>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-500 hover:text-indigo-400 cursor-pointer transition-colors">brand_awareness</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-indigo-400 cursor-pointer transition-colors">terminal</span>
+</div>
+</div>
+</footer>
+</body></html>

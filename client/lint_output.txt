@@ -1,0 +1,181 @@
+
+> client@0.0.0 lint
+> eslint .
+
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\components\AuthModal.jsx
+   31:23  error  'useLocation' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                   no-unused-vars
+  317:25  error  React Hook "useColorModeValue" is called conditionally. React Hooks must be called in the exact same order in every component render                                                                 react-hooks/rules-of-hooks
+  423:44  error  React Hook "useColorModeValue" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+  446:44  error  React Hook "useColorModeValue" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\components\FloatingPaws.jsx
+   2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 no-unused-vars
+  11:45  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+   9 |         <motion.div
+  10 |           key={i}
+> 11 |           initial={{ opacity: 0, y: 100, x: Math.random() * 100 }}
+     |                                             ^^^^^^^^^^^^^ Cannot call impure function
+  12 |           animate={{
+  13 |             opacity: [0, 0.2, 0],
+  14 |             y: -100,                 react-hooks/purity
+  15:16  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  13 |             opacity: [0, 0.2, 0],
+  14 |             y: -100,
+> 15 |             x: Math.random() * 100 + (i % 2 === 0 ? 50 : -50),
+     |                ^^^^^^^^^^^^^ Cannot call impure function
+  16 |           }}
+  17 |           transition={{
+  18 |             duration: 10 + Math.random() * 5,                          react-hooks/purity
+  18:28  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  16 |           }}
+  17 |           transition={{
+> 18 |             duration: 10 + Math.random() * 5,
+     |                            ^^^^^^^^^^^^^ Cannot call impure function
+  19 |             repeat: Infinity,
+  20 |             delay: i * 2,
+  21 |             ease: "linear",                                                react-hooks/purity
+  25:22  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  23 |           className="absolute text-primary"
+  24 |           style={{
+> 25 |             left: `${Math.random() * 100}%`,
+     |                      ^^^^^^^^^^^^^ Cannot call impure function
+  26 |             top: `${Math.random() * 100}%`,
+  27 |             fontSize: `${20 + Math.random() * 40}px`,
+  28 |           }}  react-hooks/purity
+  26:21  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  24 |           style={{
+  25 |             left: `${Math.random() * 100}%`,
+> 26 |             top: `${Math.random() * 100}%`,
+     |                     ^^^^^^^^^^^^^ Cannot call impure function
+  27 |             fontSize: `${20 + Math.random() * 40}px`,
+  28 |           }}
+  29 |         >                                     react-hooks/purity
+  27:31  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  25 |             left: `${Math.random() * 100}%`,
+  26 |             top: `${Math.random() * 100}%`,
+> 27 |             fontSize: `${20 + Math.random() * 40}px`,
+     |                               ^^^^^^^^^^^^^ Cannot call impure function
+  28 |           }}
+  29 |         >
+  30 |           <FaPaw />                          react-hooks/purity
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\components\LogoutSync.jsx
+  7:11  error  'logout' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u    no-unused-vars
+  8:9   error  'navigate' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\components\Navbar.jsx
+  33:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  31 |
+  32 |   useEffect(() => {
+> 33 |     setMobileMenuOpen(false);
+     |     ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  34 |   }, [location.pathname]);
+  35 |
+  36 |   const navClass = `fixed top-0 w-full z-50 transition-all duration-300 border-b border-border-default/5 ${  react-hooks/set-state-in-effect
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\components\OTPInput.jsx
+  1:35  error  'useEffect' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\components\ProtectedRoute.jsx
+  22:7  error  Error: This value cannot be modified
+
+Modifying a variable defined outside a component or hook is not allowed. Consider using an effect.
+
+  20 |     if (hostname.startsWith("app.")) {
+  21 |       // Redirect to marketing site login/home
+> 22 |       window.location.href = `http://${hostname.replace("app.", "")}${port}`;
+     |       ^^^^^^^^^^^^^^^ value cannot be modified
+  23 |       return null;
+  24 |     }
+  25 |     return <Navigate to="/" replace />;  react-hooks/immutability
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\components\SSOCallback.jsx
+  9:11  error  'checkUser' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\context\AuthContext.jsx
+   6:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+  31:14  error  'error' is defined but never used                                                                                               no-unused-vars
+  31:21  error  Empty block statement                                                                                                           no-empty
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\Contact.jsx
+  29:72  error  Parsing error: Unexpected token =
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\Dashboard.jsx
+  40:6  warning  React Hook useEffect has a missing dependency: 'fetchServiceAndMetrics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\Documentation.jsx
+  14:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\Features.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\Home.jsx
+  17:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\NeedOfWooffer.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\Projects.jsx
+  20:6  warning  React Hook useEffect has a missing dependency: 'fetchProjects'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\Services.jsx
+  32:6  warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\app\AppDashboard.jsx
+   77:25  error    Empty block statement                                                                                             no-empty
+   80:19  error    Empty block statement                                                                                             no-empty
+  237:6   warning  React Hook useEffect has a missing dependency: 'fetchProjects'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\app\ProjectLayout.jsx
+   65:14  error    'error' is defined but never used                                                                             no-unused-vars
+  234:15  error    Empty block statement                                                                                         no-empty
+  598:16  error    'sErr' is defined but never used                                                                              no-unused-vars
+  598:22  error    Empty block statement                                                                                         no-empty
+  612:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\app\ServiceLayout.jsx
+    1:38  error    'useRef' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                            no-unused-vars
+   18:7   error    'fmtBytes' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                 no-unused-vars
+   24:7   error    'fmtUptime' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                no-unused-vars
+  313:9   error    'usedMem' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                  no-unused-vars
+  570:6   warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array                                                                             react-hooks/exhaustive-deps
+  599:6   warning  React Hook useEffect has missing dependencies: 'initialRedirectDone', 'location.pathname', 'navigate', 'projectId', and 'serviceId'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\app\UsageSummary.jsx
+  1:17  error  'useState' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\src\pages\app\UserProfile.jsx
+  147:16  error  'err' is defined but never used   no-unused-vars
+  248:43  error  'Icon' is defined but never used  no-unused-vars
+
+C:\Users\Admin\Downloads\wooffer_backend_frontend-main\wooffer_backend_frontend-main\client\tailwind.config.js
+  43:5  error  'require' is not defined  no-undef
+
+✖ 46 problems (39 errors, 7 warnings)
+

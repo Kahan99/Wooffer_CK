@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#c3c0ff",
+              "outline": "#918fa1",
+              "surface-container-lowest": "#060e20",
+              "on-primary": "#1d00a5",
+              "primary-fixed": "#e2dfff",
+              "on-tertiary": "#003824",
+              "secondary-container": "#3a4a5f",
+              "surface-container": "#171f33",
+              "surface": "#0b1326",
+              "primary-fixed-dim": "#c3c0ff",
+              "tertiary-fixed": "#6ffbbe",
+              "on-surface-variant": "#c7c4d8",
+              "on-primary-container": "#dad7ff",
+              "background": "#0b1326",
+              "on-error-container": "#ffdad6",
+              "tertiary": "#4edea3",
+              "on-error": "#690005",
+              "secondary-fixed-dim": "#b7c8e1",
+              "secondary-fixed": "#d3e4fe",
+              "inverse-on-surface": "#283044",
+              "inverse-primary": "#4d44e3",
+              "primary": "#c3c0ff",
+              "secondary": "#b7c8e1",
+              "tertiary-fixed-dim": "#4edea3",
+              "on-tertiary-fixed-variant": "#005236",
+              "inverse-surface": "#dae2fd",
+              "error-container": "#93000a",
+              "surface-bright": "#31394d",
+              "on-secondary-fixed-variant": "#38485d",
+              "error": "#ffb4ab",
+              "on-secondary-fixed": "#0b1c30",
+              "on-primary-fixed": "#0f0069",
+              "on-secondary-container": "#a9bad3",
+              "surface-variant": "#2d3449",
+              "outline-variant": "#464555",
+              "on-secondary": "#213145",
+              "on-primary-fixed-variant": "#3323cc",
+              "surface-container-low": "#131b2e",
+              "on-tertiary-fixed": "#002113",
+              "on-background": "#dae2fd",
+              "primary-container": "#4f46e5",
+              "on-surface": "#dae2fd",
+              "surface-dim": "#0b1326",
+              "tertiary-container": "#006e4b",
+              "surface-container-high": "#222a3d",
+              "surface-container-highest": "#2d3449",
+              "on-tertiary-container": "#67f4b7"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["Fira Code"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            boxShadow: {
+              'ambient': '0 24px 64px rgba(6, 14, 32, 0.4)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .dot-grid {
+        background-image: radial-gradient(circle at 1px 1px, rgba(70, 69, 85, 0.15) 1px, transparent 0);
+        background-size: 24px 24px;
+      }
+      .glass-nav {
+        background: rgba(49, 57, 77, 0.6);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-ambient">
+<div class="flex items-center justify-between px-6 py-3 max-w-[1440px] mx-auto w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tighter text-slate-900 dark:text-slate-50 font-headline">Wooffer</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-headline font-semibold tracking-tight text-sm" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-headline font-semibold tracking-tight text-sm" href="#">Usage</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors font-headline font-semibold tracking-tight text-sm" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4">
+<button class="p-2 text-on-surface-variant hover:bg-slate-100/50 dark:hover:bg-[#2d3449] rounded-md transition-all duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-slate-100/50 dark:hover:bg-[#2d3449] rounded-md transition-all duration-200 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+<button class="hidden sm:block text-slate-400 hover:text-indigo-300 transition-colors font-headline font-semibold text-sm mr-4">Log in</button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-5 py-2 rounded-md font-headline font-semibold text-sm active:scale-95 transition-transform duration-200">Start for Free</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20 px-6 max-w-[1440px] mx-auto dot-grid min-h-screen">
+<!-- Hero Section -->
+<header class="text-center py-20 max-w-3xl mx-auto">
+<nav class="flex justify-center items-center gap-2 text-sm font-label text-outline mb-6">
+<span>Home</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary-fixed">Features</span>
+</nav>
+<h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter mb-6 bg-gradient-to-br from-on-background to-primary bg-clip-text text-transparent">
+                Engineered for High-Speed Observability
+            </h1>
+<p class="text-on-surface-variant text-lg leading-relaxed font-body">
+                The Sentinel Archive: A unified platform for diagnostic depth. We reject noisy dashboards in favor of high-fidelity logs and precise error tracking.
+            </p>
+</header>
+<!-- Bento Grid Features -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+<!-- Log Management -->
+<div class="bg-surface-container-low p-8 rounded-xl group hover:bg-surface-container transition-all duration-300 border border-outline-variant/10">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">subject</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Log Management</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">High-performance ingestion with Fira Code terminal aesthetics for massive data streams.</p>
+</div>
+<!-- Error Tracking -->
+<div class="bg-surface-container-low p-8 rounded-xl group hover:bg-surface-container transition-all duration-300 border border-outline-variant/10">
+<div class="w-12 h-12 bg-error/10 rounded-lg flex items-center justify-center text-error mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">running_with_errors</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Error Tracking</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Diagnostic depth for stack traces with automatic source mapping and issue grouping.</p>
+</div>
+<!-- Alerting -->
+<div class="bg-surface-container-low p-8 rounded-xl group hover:bg-surface-container transition-all duration-300 border border-outline-variant/10">
+<div class="w-12 h-12 bg-tertiary/10 rounded-lg flex items-center justify-center text-tertiary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Alerting</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Real-time signal processing with multi-channel delivery for zero-latency incident response.</p>
+</div>
+<!-- Uptime Monitoring -->
+<div class="bg-surface-container-low p-8 rounded-xl group hover:bg-surface-container transition-all duration-300 border border-outline-variant/10">
+<div class="w-12 h-12 bg-primary-fixed-dim/10 rounded-lg flex items-center justify-center text-primary-fixed-dim mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Uptime Monitoring</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Global ping network monitoring your endpoints from 20+ edge locations simultaneously.</p>
+</div>
+<!-- Smart Alerts -->
+<div class="bg-surface-container-low p-8 rounded-xl group hover:bg-surface-container transition-all duration-300 border border-outline-variant/10">
+<div class="w-12 h-12 bg-on-tertiary-container/10 rounded-lg flex items-center justify-center text-on-tertiary-container mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">Smart Alerts</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">ML-driven anomaly detection that filters noise and identifies true regressions.</p>
+</div>
+<!-- API Access -->
+<div class="bg-surface-container-low p-8 rounded-xl group hover:bg-surface-container transition-all duration-300 border border-outline-variant/10">
+<div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-3">API Access</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">First-class CLI and REST API for deep integration into your CI/CD pipelines.</p>
+</div>
+</section>
+<!-- Deep Dive Sections -->
+<!-- Log Management -->
+<section class="mb-32">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="relative group">
+<div class="absolute -inset-2 bg-gradient-to-r from-primary to-primary-container rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative bg-surface-container rounded-xl overflow-hidden border border-outline-variant/20 shadow-ambient">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest border-b border-outline-variant/20">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-error/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary/40"></div>
+</div>
+<span class="text-[10px] font-mono text-outline uppercase tracking-widest ml-4">Terminal_Log_Viewer.sh</span>
+</div>
+<div class="p-6 font-mono text-xs text-on-surface-variant leading-relaxed">
+<div class="flex gap-4 mb-1"><span class="text-outline">12:04:31</span><span class="text-tertiary">INFO</span><span>Connection established to cluster-01</span></div>
+<div class="flex gap-4 mb-1"><span class="text-outline">12:04:35</span><span class="text-primary">DEBUG</span><span>Parsing incoming telemetry payload...</span></div>
+<div class="flex gap-4 mb-1"><span class="text-outline">12:04:42</span><span class="text-error">ERROR</span><span class="text-on-error-container bg-error-container/20 px-1">TimeoutException: database.write_shards</span></div>
+<div class="flex gap-4 mb-1"><span class="text-outline">12:04:45</span><span class="text-outline">TRACE</span><span>0x45f92 ... retrying attempt 1/3</span></div>
+<div class="flex gap-4"><span class="text-outline">12:04:50</span><span class="text-tertiary">INFO</span><span>Write success via secondary shard</span></div>
+</div>
+</div>
+<img class="hidden" data-alt="Dark abstract code editor background with syntax highlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOKMQNuOVfNKfwTzuYp7k5TZXCxa4FEgX4BjjzJG1eGW_YOB8K_oqRjIkRlCMW2WBoiAU1zXjblM85TuxMUeKM12ua5xTgQrhZH0r129CO6QVdfI1Duu4PdMElr8ra52tKYzIpsqJpprSUy_xl9GKEln7QgXnMixwyqLqimyrwNXhNWsSAgD4kSNe6R99hDAt6dpB-5bdAP9_3Hki3sMuemNEtOu2Pe_D8dzJBa1Dr6e9DjNHPqFtGZapy6nWMpkPQpAHxv8vA60"/>
+</div>
+<div>
+<span class="text-primary font-mono text-xs uppercase tracking-[0.2em] block mb-4">Core Infrastructure</span>
+<h2 class="text-4xl font-headline font-bold mb-6">Log Management</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<div>
+<p class="font-headline font-semibold text-lg">Sub-second Ingestion</p>
+<p class="text-on-surface-variant text-sm">Query billions of logs in milliseconds using our proprietary indexing engine.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<div>
+<p class="font-headline font-semibold text-lg">Custom Parsers</p>
+<p class="text-on-surface-variant text-sm">JSON, Regex, or Grok—transform messy strings into structured, actionable data.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<div>
+<p class="font-headline font-semibold text-lg">Long-term Retention</p>
+<p class="text-on-surface-variant text-sm">Archival storage for compliance with instant "hydration" back to active queries.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Error Tracking -->
+<section class="mb-32">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<span class="text-error font-mono text-xs uppercase tracking-[0.2em] block mb-4">Reliability Engineering</span>
+<h2 class="text-4xl font-headline font-bold mb-6">Error Tracking</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-error">analytics</span>
+<div>
+<p class="font-headline font-semibold text-lg">Contextual Stack Traces</p>
+<p class="text-on-surface-variant text-sm">See the local variables and system state at the exact moment of failure.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-error">group_work</span>
+<div>
+<p class="font-headline font-semibold text-lg">Smart Grouping</p>
+<p class="text-on-surface-variant text-sm">We merge millions of individual events into single, manageable issues based on fingerprinting.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-error">history</span>
+<div>
+<p class="font-headline font-semibold text-lg">Regression Detection</p>
+<p class="text-on-surface-variant text-sm">Automatically reopen issues if they reappear in a newer release or deployment.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="order-1 md:order-2 bg-surface-container-low rounded-xl p-8 border border-outline-variant/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<div class="flex items-center gap-2 bg-error-container text-on-error-container px-3 py-1 rounded-full text-[10px] font-bold">
+<span class="w-1.5 h-1.5 bg-on-error-container rounded-full animate-pulse"></span>
+                            LIVE ERROR
+                        </div>
+</div>
+<div class="mb-8">
+<h4 class="text-error text-xl font-mono font-bold">TypeError: Cannot read property 'map' of undefined</h4>
+<p class="text-on-surface-variant text-sm font-mono mt-2">src/components/Dashboard.tsx:42:18</p>
+</div>
+<div class="space-y-4">
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error w-3/4"></div>
+</div>
+<div class="flex justify-between text-[10px] font-mono text-outline uppercase tracking-wider">
+<span>Occurrences: 12.4k</span>
+<span>Users Impacted: 892</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Alerting -->
+<section class="mb-32">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="bg-surface-container-highest/30 rounded-xl p-8 border border-outline-variant/10">
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/5">
+<span class="material-symbols-outlined text-tertiary mb-2">chat</span>
+<p class="text-xs font-headline font-bold text-on-background">Slack</p>
+<p class="text-[10px] text-outline">Connected</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/5">
+<span class="material-symbols-outlined text-primary mb-2">call</span>
+<p class="text-xs font-headline font-bold text-on-background">PagerDuty</p>
+<p class="text-[10px] text-outline">Connected</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/5">
+<span class="material-symbols-outlined text-[#7289da] mb-2">forum</span>
+<p class="text-xs font-headline font-bold text-on-background">Discord</p>
+<p class="text-[10px] text-outline">Standby</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/5 opacity-50">
+<span class="material-symbols-outlined text-outline mb-2">add</span>
+<p class="text-xs font-headline font-bold text-on-background">Add Webhook</p>
+</div>
+</div>
+</div>
+<div>
+<span class="text-tertiary font-mono text-xs uppercase tracking-[0.2em] block mb-4">Notification Engine</span>
+<h2 class="text-4xl font-headline font-bold mb-6">Alerting</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary">bolt</span>
+<div>
+<p class="font-headline font-semibold text-lg">Threshold Monitoring</p>
+<p class="text-on-surface-variant text-sm">Define complex logic: "Alert if latency &gt; 500ms for 5 minutes across 3 regions."</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary">campaign</span>
+<div>
+<p class="font-headline font-semibold text-lg">On-call Escalation</p>
+<p class="text-on-surface-variant text-sm">Native escalation policies ensure no critical incident is missed.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Uptime -->
+<section class="mb-32">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<span class="text-primary-fixed-dim font-mono text-xs uppercase tracking-[0.2em] block mb-4">Global Availability</span>
+<h2 class="text-4xl font-headline font-bold mb-6">Uptime Monitoring</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary-fixed-dim">public</span>
+<div>
+<p class="font-headline font-semibold text-lg">Multi-Region Checks</p>
+<p class="text-on-surface-variant text-sm">Validate availability from Tokyo, London, and New York simultaneously.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary-fixed-dim">verified</span>
+<div>
+<p class="font-headline font-semibold text-lg">SSL &amp; DNS Tracking</p>
+<p class="text-on-surface-variant text-sm">Get notified before your certificates expire or DNS records drift.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="order-1 md:order-2">
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10 aspect-video flex flex-col justify-center">
+<div class="flex items-center justify-between mb-8">
+<h5 class="font-headline font-bold text-on-background">api.production.internal</h5>
+<span class="text-tertiary text-xs font-mono">99.99% HEALTHY</span>
+</div>
+<div class="flex items-end gap-1.5 h-24">
+<!-- Simulated Uptime Bars -->
+<div class="flex-1 bg-tertiary/20 h-1/2 rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-2/3 rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-1/2 rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-4/5 rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-full rounded-t-sm"></div>
+<div class="flex-1 bg-error/50 h-1/4 rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-full rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-4/5 rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-full rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-full rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-4/5 rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-2/3 rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary/20 h-full rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0b1326] border-t border-slate-800/50">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] text-sm leading-relaxed">
+<div class="col-span-2 md:col-span-1">
+<span class="text-lg font-bold text-slate-50 mb-6 block">Wooffer</span>
+<p class="text-slate-400 mb-6">The modern sentinel for your distributed systems. Reliable diagnostics for professional engineering teams.</p>
+<p class="text-slate-500">© 2026 Wooffer Inc.</p>
+</div>
+<div>
+<h4 class="text-slate-50 font-bold mb-6">Product</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Features</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Pricing</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Demo</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Docs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-50 font-bold mb-6">Resources</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Blog</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">API Reference</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Terms</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Privacy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-50 font-bold mb-6">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">About</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Careers</a></li>
+<li><a class="text-slate-400 hover:text-indigo-300 transition-colors hover:translate-x-1 inline-block" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

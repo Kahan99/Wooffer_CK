@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#a9bad3",
+              "secondary": "#b7c8e1",
+              "surface-tint": "#c3c0ff",
+              "secondary-fixed": "#d3e4fe",
+              "on-surface": "#dae2fd",
+              "inverse-surface": "#dae2fd",
+              "surface-container-high": "#222a3d",
+              "outline": "#918fa1",
+              "on-tertiary-fixed": "#002113",
+              "surface-dim": "#0b1326",
+              "surface-container-highest": "#2d3449",
+              "surface-bright": "#31394d",
+              "on-primary-container": "#dad7ff",
+              "on-primary-fixed-variant": "#3323cc",
+              "background": "#0b1326",
+              "tertiary-container": "#006e4b",
+              "surface-variant": "#2d3449",
+              "primary-fixed-dim": "#c3c0ff",
+              "on-tertiary-fixed-variant": "#005236",
+              "on-secondary": "#213145",
+              "surface-container-low": "#131b2e",
+              "outline-variant": "#464555",
+              "on-primary-fixed": "#0f0069",
+              "primary": "#c3c0ff",
+              "on-tertiary-container": "#67f4b7",
+              "inverse-on-surface": "#283044",
+              "on-primary": "#1d00a5",
+              "on-secondary-fixed-variant": "#38485d",
+              "on-tertiary": "#003824",
+              "error-container": "#93000a",
+              "on-error-container": "#ffdad6",
+              "error": "#ffb4ab",
+              "primary-container": "#4f46e5",
+              "surface-container-lowest": "#060e20",
+              "on-surface-variant": "#c7c4d8",
+              "on-secondary-fixed": "#0b1c30",
+              "secondary-container": "#3a4a5f",
+              "on-background": "#dae2fd",
+              "on-error": "#690005",
+              "tertiary-fixed-dim": "#4edea3",
+              "tertiary": "#4edea3",
+              "surface-container": "#171f33",
+              "tertiary-fixed": "#6ffbbe",
+              "primary-fixed": "#e2dfff",
+              "surface": "#0b1326",
+              "secondary-fixed-dim": "#b7c8e1",
+              "inverse-primary": "#4d44e3"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .dot-grid {
+            background-image: radial-gradient(circle, #464555 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-900/60 backdrop-blur-xl shadow-2xl shadow-indigo-500/10">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<!-- Leading Group -->
+<div class="flex items-center gap-3">
+<div class="text-indigo-500 dark:text-indigo-400">
+<span class="material-symbols-outlined text-2xl" data-icon="pets">pets</span>
+</div>
+<h1 class="text-2xl font-extrabold tracking-tighter text-slate-50 dark:text-white font-['Plus_Jakarta_Sans']">Wooffer</h1>
+</div>
+<!-- Actions Group -->
+<div class="flex items-center gap-4">
+<!-- Theme Toggle (Hybrid addition) -->
+<button class="text-slate-400 hover:text-indigo-300 transition-colors duration-200 active:scale-95 transform">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+</button>
+<!-- Primary CTA -->
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-xl font-['Plus_Jakarta_Sans'] font-semibold tracking-tight hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all active:scale-95">
+                    Start Now
+                </button>
+<!-- Navigation Trigger (Hamburger) -->
+<button class="md:hidden text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+<!-- Separation Logic -->
+<div class="h-[1px] w-full bg-slate-800/20"></div>
+</header>
+<!-- Main Content Placeholder (Sentinel Archive Theme) -->
+<main class="pt-24 px-6 pb-32 max-w-7xl mx-auto space-y-12">
+<!-- Hero Asymmetry -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-xs font-label text-tertiary uppercase tracking-widest">System Operational</span>
+</div>
+<h2 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-tight">
+                    The Modern <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Sentinel</span> for Pet Data.
+                </h2>
+<p class="text-lg text-on-surface-variant max-w-xl leading-relaxed">
+                    Diagnostic depth for your furry companions. Track metrics, logs, and health patterns with the precision of a high-speed developer tool.
+                </p>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="relative bg-surface-container rounded-3xl p-1 border border-outline-variant/10 shadow-ambient overflow-hidden">
+<div class="bg-surface-container-low rounded-[1.4rem] overflow-hidden">
+<div class="p-4 border-b border-outline-variant/10 flex items-center justify-between dot-grid">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-error/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary/40"></div>
+</div>
+<span class="text-[10px] font-label text-outline uppercase tracking-tighter">diagnostics_v2.log</span>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="monitoring">monitoring</span>
+</div>
+<div class="space-y-1">
+<div class="h-2 w-24 bg-surface-container-highest rounded"></div>
+<div class="h-2 w-48 bg-outline-variant/20 rounded"></div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/10">
+<code class="text-xs font-label text-on-surface-variant block leading-6">
+                                    [14:22:01] <span class="text-tertiary">SUCCESS</span>: Heart_Rate_Stable<br/>
+                                    [14:22:05] <span class="text-primary">INFO</span>: Step_Count_Update(4502)<br/>
+                                    [14:23:12] <span class="text-error">WARN</span>: Hydration_Level_Low
+                                </code>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-low rounded-3xl p-8 border border-outline-variant/5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl" data-icon="psychology">psychology</span>
+</div>
+<div class="relative z-10 space-y-4">
+<h3 class="text-2xl font-headline font-bold text-on-surface">Precision Tracking</h3>
+<p class="text-on-surface-variant max-w-md">Real-time monitoring of activity levels using biometric sensors. Designed for the data-obsessed pet owner.</p>
+</div>
+</div>
+<div class="bg-primary-container rounded-3xl p-8 text-white relative overflow-hidden flex flex-col justify-end min-h-[240px]">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+<h3 class="text-2xl font-headline font-bold relative z-10">Documentation</h3>
+<p class="text-indigo-100 text-sm mt-2 relative z-10">Integrate with our open API and build custom widgets for your Wooffer dashboard.</p>
+</div>
+</section>
+</main>
+<!-- NavigationDrawer (Mobile State) -->
+<!-- Note: This would typically be toggled via JS; shown here as per instructions -->
+<aside class="fixed inset-y-0 left-0 z-[60] w-72 flex flex-col p-6 bg-slate-950/95 backdrop-blur-2xl rounded-r-2xl h-full border-r border-slate-800/50 shadow-ambient transform -translate-x-full md:hidden">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-bold text-slate-50 font-['Inter']">Menu</h2>
+<button class="text-slate-400">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-2">
+<!-- Active Home -->
+<a class="bg-indigo-500/10 text-indigo-400 rounded-xl px-4 py-3 flex items-center gap-3 font-['Inter'] font-medium text-sm transition-all cubic-bezier(0.4, 0, 0.2, 1)" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+                Home
+            </a>
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 font-['Inter'] font-medium text-sm hover:bg-slate-800/50 hover:text-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+                Features
+            </a>
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 font-['Inter'] font-medium text-sm hover:bg-slate-800/50 hover:text-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                Need of Wooffer
+            </a>
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 font-['Inter'] font-medium text-sm hover:bg-slate-800/50 hover:text-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Documentation
+            </a>
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 font-['Inter'] font-medium text-sm hover:bg-slate-800/50 hover:text-slate-100 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                Contact
+            </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-800/50">
+<div class="flex items-center gap-3 px-4">
+<div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-[10px] font-bold">W</div>
+<div>
+<p class="text-xs font-bold text-slate-100">Wooffer Pro</p>
+<p class="text-[10px] text-slate-500">v2.4.0-stable</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- BottomNavBar (Mobile Visible) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-slate-900/80 backdrop-blur-lg rounded-t-3xl border-t border-slate-800/50 shadow-[0_-8px_32px_rgba(0,0,0,0.4)]">
+<button class="text-slate-500 p-3 hover:bg-slate-800 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+</button>
+<button class="bg-indigo-600 text-white rounded-full p-3 scale-110 duration-200 shadow-lg shadow-indigo-600/20">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-slate-500 p-3 hover:bg-slate-800 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 p-3 hover:bg-slate-800 rounded-full transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</nav>
+</body></html>
